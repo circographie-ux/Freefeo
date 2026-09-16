@@ -1,0 +1,7 @@
+{
+  "name":"diffusion-crm",
+  "version":"1.0.0",
+  "private":true,
+  "scripts":{"start":"node server/index.js","dev":"node --watch server/index.js"},
+  "dependencies":{"express":"^5.1.0","pg":"^8.16.3","multer":"^2.0.2","bcryptjs":"^3.0.2","jsonwebtoken":"^9.0.2","xlsx":"^0.18.5","dotenv":"^17.2.2"}
+}

@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: diffusion
+      POSTGRES_USER: diffusion
+      POSTGRES_PASSWORD: diffusion
+    ports: ["5432:5432"]
+    volumes: [dbdata:/var/lib/postgresql/data]
+  app:
+    build: .
+    ports: ["3000:3000"]
+    environment:
+      DATABASE_URL: postgresql://diffusion:diffusion@db:5432/diffusion
+      JWT_SECRET: change-me
+    depends_on: [db]
+    volumes:
+      - uploads:/app/uploads
+volumes:
+  dbdata:
+  uploads:
